@@ -1,18 +1,18 @@
 .side_bar
-  .side-bar__user-name
-    .side-bar__box
-      .side-bar__box__user-name
+  .side_bar__box
+    .side_bar__box__menu
+      .side_bar__box__menu__user-name
         masa
-      .side-bar__box__menu
-        .side-bar__box__menu__new-group
+      .side_bar__box__menu__icon
+        .side_bar__box__menu__icon__new-group
         =link_to "#", class: "contents__btn" do
           = icon('far', 'edit')
-        .side-bar__box__menu__edit-user
+        .side_bar__box__menu__icon__edit-user
         =link_to "#", class: "contents__btn" do
           = icon('fas', 'cog')
-  .side-bar__group-list
-    .side-bar__group-list__group
-      .side-bar__group-list__name
+  .side_bar__group-list
+    .side_bar__group-list__group
+      .side_bar__group-list__group__name
         test
-      .side-bar__group-list__lastest-message
+      .side_bar__group-list__group__lastest-message
         まだメッセージがありません

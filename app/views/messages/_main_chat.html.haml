@@ -1,0 +1,31 @@
+.main_chat
+  .main_chat__group-info
+    .main_chat__group-info__left-box
+      .main_chat__group-info__left-box__current-group
+        test
+      .main_chat__group-info__left-box__member-list
+        Member :
+        .main_chat__group-info__left-box__member-list__member
+          masa
+    .main_chat__group-info__edit-btn
+      = link_to "#", class:"main_chat__group-info__edit-btn__btn" do
+        Edit
+  .main_chat__message-list
+    .main_chat__message-list__message
+      .main_chat__message-list__message__upper-info
+        .main_chat__message-list__message__upper-info__talker
+          masa
+        .main_chat__message-list__message__upper-info__date
+          2020/05/01(Fri)06:05:50
+      .main_chat__message-list__message__text
+        おはよう!
+  .main_chat__message-form
+    .main_chat__message-form__new-message
+      .main_chat__message-form__new-message__input-box
+        .main_chat__message-form__new-message__input-box__text
+          type a message
+        %label{class: "main_chat__message-form__new-message__input-box__image"}
+          = icon('fas', 'image')
+          %input{type: "file", class:"main_chat__message-form__new-message__input-box__image__file"}
+      .main_chat__message-form__new-message__submit-btn
+        Send

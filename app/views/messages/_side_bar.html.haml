@@ -2,14 +2,14 @@
   .side_bar__box
     .side_bar__box__menu
       .side_bar__box__menu__user-name
-        masa
+        = current_user.name
       .side_bar__box__menu__icon
         .side_bar__box__menu__icon__new-group
         =link_to "#", class: "contents__btn" do
           = icon('far', 'edit')
         .side_bar__box__menu__icon__edit-user
-        =link_to "#", class: "contents__btn" do
-          = icon('fas', 'cog')
+        =link_to edit_user_path(current_user) do
+          = icon('fas', 'cog', class: 'contents__btn')
   .side_bar__group-list
     .side_bar__group-list__group
       .side_bar__group-list__group__name

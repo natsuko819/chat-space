@@ -2,30 +2,27 @@
   .main_chat__group-info
     .main_chat__group-info__left-box
       .main_chat__group-info__left-box__current-group
-        test
+        = @group.name
       .main_chat__group-info__left-box__member-list
         Member :
         .main_chat__group-info__left-box__member-list__member
-          masa
+          = @group.users
     .main_chat__group-info__edit-btn
-      = link_to "#", class:"main_chat__group-info__edit-btn__btn" do
+      = link_to edit_group_path(current_user) do
         Edit
   .main_chat__message-list
+    = render @messages
     .main_chat__message-list__message
       .main_chat__message-list__message__upper-info
         .main_chat__message-list__message__upper-info__talker
-          masa
         .main_chat__message-list__message__upper-info__date
-          2020/05/01(Fri)06:05:50
       .main_chat__message-list__message__text
-        おはよう!
   .main_chat__message-form
-    .main_chat__message-form__new-message
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'main_chat__message-form__new-message', placeholder: 'type a message'
       .main_chat__message-form__new-message__input-box
         .main_chat__message-form__new-message__input-box__text
-          type a message
-        %label{class: "main_chat__message-form__new-message__input-box__image"}
-          = icon('fas', 'image')
-          %input{type: "file", class:"main_chat__message-form__new-message__input-box__image__file"}
-      .main_chat__message-form__new-message__submit-btn
-        Send
+        = f.label :image, class: 'main_chat__message-form__new-message__input-box__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'main_chat__message-form__new-message__input-box__image__file'
+      = f.submit 'Send', class: 'main_chat__message-form__new-message__submit-btn'

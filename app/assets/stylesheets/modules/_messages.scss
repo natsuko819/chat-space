@@ -44,12 +44,13 @@
     }
   }
   &__group-list {
-    color: #ffffff;
     background-color: #2f3e51;
     height: calc(100vh - 100px);
     padding: 20px 20px 0;
     &__group {
+      color: #ffffff;
       margin-bottom: 40px;
+      text-decoration: none;
       &__name {
         font-size: 15px;
         margin-bottom: 5px;
@@ -72,6 +73,7 @@
     padding: 0 40px;
     display: flex;
     justify-content: space-between;
+    overflow: scroll;
     &__left-box {
       margin-top: 35px;
       &__current-group {
@@ -143,28 +145,27 @@
     height: 90px;
     background-color: #d2d2d2;
     padding: 20px 40px;
+    display: flex;
+    position: relative;
     &__new-message {
-      display: flex;
-      justify-content: center;
-      &__input-box {
+      background-color: #fafafa;
+      position: relative;
+      width: 90%;
+      &__text {
         width: 100%;
-        background-color: #fafafa;
-        position: relative;
-        display: flex;
-        &__text {
-          height: 50px;
-          line-height: 50px;
-          padding: 0 40px 0 10px;
-          color: #434a54;
-        }
-        &__image {
-          position: absolute;
-          right: 10px;
-          top: 10px;
-          font-size: 1.3rem;
-          &__file {
-            display: none;
-          }
+        height: 50px;
+        line-height: 50px;
+        padding: 0 40px 0 10px;
+        color: #434a54;
+        border-style: none;
+      }
+      &__image {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 1.3rem;
+        &__file {
+          display: none;
         }
       }
       &__submit-btn {
@@ -175,6 +176,7 @@
         background-color: #38aef0;
         color: white;
         padding: 0 30px;
+        position: absolute;
       }
     }
   }

@@ -6,7 +6,8 @@
       .main_chat__group-info__left-box__member-list
         Member :
         .main_chat__group-info__left-box__member-list__member
-          = @group.users
+          - @group.users.each do |user|
+            = user.name
     .main_chat__group-info__edit-btn
       = link_to edit_group_path(current_user) do
         Edit
@@ -18,11 +19,10 @@
         .main_chat__message-list__message__upper-info__date
       .main_chat__message-list__message__text
   .main_chat__message-form
-    = form_for [@group, @message] do |f|
-      = f.text_field :content, class: 'main_chat__message-form__new-message', placeholder: 'type a message'
-      .main_chat__message-form__new-message__input-box
-        .main_chat__message-form__new-message__input-box__text
-        = f.label :image, class: 'main_chat__message-form__new-message__input-box__image' do
+    .main_chat__message-form__new-message
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'main_chat__message-form__new-message__text', placeholder: 'type a message'
+        = f.label :image, class: 'main_chat__message-form__new-message__image' do
           = icon('fas', 'image', class: 'icon')
-          = f.file_field :image, class: 'main_chat__message-form__new-message__input-box__image__file'
-      = f.submit 'Send', class: 'main_chat__message-form__new-message__submit-btn'
+          = f.file_field :image, class: 'main_chat__message-form__new-message__image__file'
+        = f.submit 'Send', class: 'main_chat__message-form__new-message__submit-btn'

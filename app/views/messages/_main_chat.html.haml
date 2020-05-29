@@ -9,15 +9,10 @@
           - @group.users.each do |user|
             = user.name
     .main_chat__group-info__edit-btn
-      = link_to edit_group_path(current_user) do
+      = link_to edit_group_path(current_user),class:"main_chat__group-info__edit-btn__btn" do
         Edit
   .main_chat__message-list
     = render @messages
-    .main_chat__message-list__message
-      .main_chat__message-list__message__upper-info
-        .main_chat__message-list__message__upper-info__talker
-        .main_chat__message-list__message__upper-info__date
-      .main_chat__message-list__message__text
   .main_chat__message-form
     .main_chat__message-form__new-message
       = form_for [@group, @message] do |f|

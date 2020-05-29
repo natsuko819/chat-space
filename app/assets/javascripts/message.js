@@ -3,16 +3,16 @@ $(function(){
     if ( message.image ) {
         //data-idが反映されるようにしている
         var html =
-         `<div class="message" data-message-id=${message.id}>
-            <div class="upper-message">
-              <div class="upper-message__user-name">
+         `<div class="main_chat__message-list__message" data-message-id=${message.id}>
+            <div class="main_chat__message-list__message__upper-info">
+              <div class="main_chat__message-list__message__upper-info__talker">
                 ${message.user_name}
               </div>
-              <div class="upper-message__date">
+              <div class="main_chat__message-list__message__upper-info__date">
                 ${message.created_at}
               </div>
             </div>
-            <div class="lower-message">
+            <div class="main_chat__message-list__message__text">
               <p class="lower-message__content">
                 ${message.content}
               </p>
@@ -23,16 +23,16 @@ $(function(){
       } else {
         //同様にdata-idが反映されるようにしている
         var html =
-         `<div class="message" data-message-id=${message.id}>
-            <div class="upper-message">
-              <div class="upper-message__user-name">
+         `<div class="main_chat__message-list__message" data-message-id=${message.id}>
+            <div class="main_chat__message-list__message__upper-info">
+              <div class="main_chat__message-list__message__upper-info__talker">
                 ${message.user_name}
               </div>
-              <div class="upper-message__date">
+              <div class="main_chat__message-list__message__upper-info__date">
                 ${message.created_at}
               </div>
             </div>
-            <div class="lower-message">
+            <div class="main_chat__message-list__message__text">
               <p class="lower-message__content">
                 ${message.content}
               </p>
@@ -62,12 +62,14 @@ $(function(){
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
+      $('.main_chat__message-form__new-message__submit-btn').prop('disabled', false);
     });
   });
 
   var reloadMessages = function() {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-    var last_message_id = $('.message:last').data("message-id");
+    var last_message_id = $('.main_chat__message-list__message:last').data("message-id")
+    console.log(last_message_id)
     $.ajax({
       //ルーティングで設定した通り/groups/id番号/api/messagesとなるよう文字列を書く
       url: "api/messages",
@@ -94,7 +96,6 @@ $(function(){
       alert('error');
     });
   };
-  setInterval(reloadMessages, 7000);
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
     setInterval(reloadMessages, 7000);
   }
